@@ -1,3 +1,39 @@
+.headerWrapper {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  display: flex;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 !important;
+}
+
+img {
+  width: 148px;
+  height: 148px;
+}
+
+.navLinkWrapper {
+  display: flex;
+}
+
+ul {
+  padding-left: 0 !important;
+}
+
+li {
+  list-style: none;
+}
+
+.unOrderedList {
+  gap: 1rem;
+  font-size: 1.5rem;
+  display: inline-flex;
+}
 
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
