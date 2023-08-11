@@ -101,7 +101,7 @@ export const Body = () => (
       <RestaurantCard resData = {resData}/>
       <RestaurantCard resData = {resData}/>
       <RestaurantCard resData = {resData}/>
-      <RestaurantCard resData = {resData}/>
+      
 
      
       
