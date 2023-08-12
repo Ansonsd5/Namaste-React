@@ -12,8 +12,9 @@ body {
   padding: 0px 1rem;
 }
 img {
+  width: 100%;
   height: 148px;
-  width: 148px;
+  object-fit: cover;
 }
 .navLinkWrapper {
   display: flex;
@@ -29,14 +30,35 @@ li {
   gap: 1rem;
   font-size: 1.5rem;
 }
+.searchBoxWrapper {
+  width: 100%;
+  padding: 0.5rem;
+}
+.searchBox {
+  width: 50%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
 .restaurantWrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 10px; 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+.restaurantCardWrapper {
+  background: hsl(0deg 0% 97.2%);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.cardImageconatiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }
 .restaurantCard {
-  display: flex;
   border-radius: 10px;
   border: 1px solid #101010;
   align-items: center;
@@ -44,4 +66,36 @@ li {
   flex-direction: column;
   width: fit-content;
   padding: 8px;
+}
+.cardContentWrapper {
+  padding: 0.25rem 0.8rem;
+}
+.avgstarandCost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchButtonConatiner {
+  display: flex;
+}
+
+.search{
+  display: inline-flex;
+  width: 50%;
+  gap: 1rem;
+}
+.shimmerWrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 2rem;
+
+}
+.shimmerCards{
+  display: flex;
+ flex-direction: row;
+  width: 220px;
+  height: 350px;
+  background: hsl(0, 3%, 93%);
+  border-radius: 1rem;
 }
