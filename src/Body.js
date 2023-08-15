@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link, Params, useParams } from "react-router-dom";
 
 export const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -12,8 +13,7 @@ export const Body = () => {
   }, []);
 
   
-
-  const fetchData = async () => {
+    const fetchData = async () => {
       const response = await fetch(
         "https://www.swiggy.com/api/seo/getListing?lat=12.960059122809971&lng=77.57337538383284"
       );
@@ -34,7 +34,7 @@ export const Body = () => {
     setFilteredRestaurant(filteredRestaurant);
   };
 
- 
+ console.log(Params,"params");
   return  filteredRestaurant.length === 0  ? <Shimmer />: (
     <div className="bodyWrapper">
       <div className="searchBoxWrapper">
@@ -52,7 +52,7 @@ export const Body = () => {
       </div>
       <div className="restaurantWrapper">
         { filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} /> 
+         <Link  key={restaurant.info.id} to={"restaurant/"+`${restaurant.info.id}`}><RestaurantCard resData={restaurant} /> </Link> 
         )) }
       </div>
     </div>
