@@ -10,6 +10,14 @@
 body {
   margin: 0px !important;
   padding: 0px 1rem;
+  
+}
+
+
+a:-webkit-any-link {
+    color: black !important;
+    cursor: pointer;
+    text-decoration: none !important;
 }
 img {
   width: 100%;
@@ -99,3 +107,4 @@ li {
   background: hsl(0, 3%, 93%);
   border-radius: 1rem;
 }
+
