@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Error from "./Error";
 
 
 const RestaurantMenu = () =>{
@@ -22,7 +23,9 @@ const [menuItem,setMenuItem] = useState([]);
         }
     console.log(menuData,"menuData");
     console.log(menuItem,"menuItem");
-    return <div className="menuListWrapper">
+    return <>
+    { menuItem ?
+        (<div className="menuListWrapper">
         
         <h3>{menuData.name}</h3>
         <h4>List of Iters</h4>
@@ -32,7 +35,10 @@ const [menuItem,setMenuItem] = useState([]);
         <div className="flatDealWrapper">
             <div>{menuItem.map((item)=><div><h5>{item.card.info.name}</h5><p>{item.card.info.price/100}</p><img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+item.card.info.imageId}/> <p>{item.card.info.description}</p></div>)}</div>
         </div>
-    </div>
+    </div>):(<div>Some Things is wrong... we will be back</div>)
+    }
+    
+    </> 
 }
 
 export default RestaurantMenu;

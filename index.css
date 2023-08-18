@@ -14,11 +14,7 @@ body {
 }
 
 
-a:-webkit-any-link {
-    color: black !important;
-    cursor: pointer;
-    text-decoration: none !important;
-}
+
 img {
   width: 100%;
   height: 148px;
@@ -51,14 +47,36 @@ li {
 }
 
 .restaurantWrapper {
+  margin: 16px 32px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
-  grid-gap: 10px;
+  grid-template-columns: repeat(4,auto);
+  align-items: start;
+    gap: 24px;
 }
 .restaurantCardWrapper {
   background: hsl(0deg 0% 97.2%);
   border-radius: 1rem;
   cursor: pointer;
+}
+.cuisines{
+  -webkit-font-smoothing: antialiased;
+  font-family: "Basis Grotesque Pro";
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 19px;
+  letter-spacing: -0.3px;
+  color: rgba(2, 6, 12, 0.6);
+  overflow: hidden;
+  width: 100%;
+  display: -webkit-box;
+  overflow-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.avgStarCostOfTwo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .cardImageconatiner {
   display: flex;
@@ -108,3 +126,10 @@ li {
   border-radius: 1rem;
 }
 
+.linkWrapper{
+  text-decoration: none;
+  color: inherit;
+  outline: 0;
+  cursor: pointer;
+
+}

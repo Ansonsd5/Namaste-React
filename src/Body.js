@@ -52,7 +52,7 @@ export const Body = () => {
       </div>
       <div className="restaurantWrapper">
         { filteredRestaurant.map((restaurant) => (
-         <Link  key={restaurant.info.id} to={"restaurant/"+`${restaurant.info.id}`}><RestaurantCard resData={restaurant} /> </Link> 
+         <Link className="linkWrapper"  key={restaurant.info.id} to={"restaurant/"+`${restaurant.info.id}`}><RestaurantCard resData={restaurant} /> </Link> 
         )) }
       </div>
     </div>
