@@ -18,7 +18,7 @@ const [menuItem,setMenuItem] = useState([]);
 
             const jsonMenuData = await data.json();
             setMenuData(jsonMenuData?.data?.cards[0]?.card?.card?.info);
-            setMenuItem(jsonMenuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+            setMenuItem(jsonMenuData?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
             
         }
     console.log(menuData,"menuData");
