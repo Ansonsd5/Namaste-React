@@ -133,3 +133,36 @@ li {
   cursor: pointer;
 
 }
+.menuItemImg{
+  display: inline-block;
+  width: 100%;
+  max-width: 200px;
+  min-width: 100px;
+}
+
+.dishDiscription{
+  -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 2;
+}
+.menuItemGrid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+ gap: 16px;
+}
+.menuItemGrid >img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuList{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  border: 1PX solid grey;
+  padding: 8px;
+  border-radius: 12px;
+}
