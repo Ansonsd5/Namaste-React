@@ -21,7 +21,7 @@ const RestaurantMenu = () => {
     const jsonMenuData = await data.json();
     setMenuData(jsonMenuData?.data?.cards[0]?.card?.card?.info);
     setMenuItem(
-      jsonMenuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+      jsonMenuData?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
         ?.card?.card?.itemCards
     );
   };
