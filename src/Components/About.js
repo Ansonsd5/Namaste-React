@@ -21,7 +21,7 @@ componentDidMount(){
           <h1>About Us</h1>
           {/* <UserFunction name={"Anson Saver Dsouza"} role={"Frontend Developer @Niveus Solution"} workLocation= {"Mangaluru Karnataka"}/> */}
          
-          {/* <UserClass name={"Renol"} role={"IV std"} company={"Not Applicable"} workLocation= {"Mangalore Karnataka"}/> */}
+          <UserClass />
           {/* <UserClass name={"Anson Dsouza"} role={"FrontEnd Developer"} company={"Niveus Solutions"} workLocation= {"Mangalore Karnataka"}/> */}
           <UserClassApi />
         </div>

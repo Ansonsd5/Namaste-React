@@ -6,35 +6,39 @@ class UserClass extends React.Component {
     super(props);
 
     this.state = {
-       count: 0,
-       unlike:0
+      userInfo :{
+        name: "NO name",
+        location: "default",
+        avatar: "",
+      }
+      
       
     }
    
   }
-  componentDidMount(){
-    console.log("child component did mount");
+ async componentDidMount(){
+    const data = await fetch("https://api.github.com/users/Ansonsd5");
+    const jsonData = await data.json();
+    console.log(jsonData);
+    
+
+    this.setState({userInfo : jsonData})
   }
   render() {
     {console.log("Child Render")}
-    const { name, role, company, workLocation } = this.props;
-    const { count , unlike} = this.state;
-    const updateCount = () =>{
-      this.setState({count : this.state.count + 1})
-    }
+    const { name, location, avatar_url,login } = this.state.userInfo;
 
+   
    
     return (
       
       <div className="classComponent" >
         <h1>This is a Class Based React Component</h1>
         <h1 style={{color:"red"}}>{name}</h1>
-        <h2>{role + " " + company}</h2>
-        <h5>{workLocation}</h5>
-        <h4>Count : {count}</h4>
-        <h4>unLike : {unlike}</h4>
-       <button onClick={updateCount}>Like</button>
-       <button onClick={() => {this.setState({unlike :this.state.unlike -1})}}>disLike</button>
+        <h5>{login}</h5>
+        <img src={avatar_url} alt="avatar" style={{height:44,width:44,borderRadius:"50%"}} />
+        
+      
       </div>
     );
   }
