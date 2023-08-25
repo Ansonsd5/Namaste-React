@@ -26,7 +26,7 @@ class UserClass extends React.Component {
   }
   render() {
     {console.log("Child Render")}
-    const { name, location, avatar_url,login } = this.state.userInfo;
+    const { name, location, avatar_url,login,created_at } = this.state.userInfo;
 
    
    
@@ -36,6 +36,8 @@ class UserClass extends React.Component {
         <h1>This is a Class Based React Component</h1>
         <h1 style={{color:"red"}}>{name}</h1>
         <h5>{login}</h5>
+        <h5>{location}</h5>
+        <h5>Since from {created_at}</h5>
         <img src={avatar_url} alt="avatar" style={{height:44,width:44,borderRadius:"50%"}} />
         
       
