@@ -1,43 +1,28 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Error from "./Error";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  useEffect(() => {
-    resMenuData();
-  }, []);
+ 
 
   const { resId } = useParams();
-  console.log(resId, "params");
-  const [menuData, setMenuData] = useState([]);
-  const [menuItem, setMenuItem] = useState([]);
+ 
 
-  const resMenuData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.000761&lng=74.8185446&restaurantId=" +
-        `${resId}`
-    );
-
-    const jsonMenuData = await data.json();
-    setMenuData(jsonMenuData?.data?.cards[0]?.card?.card?.info);
-    setMenuItem(
-      jsonMenuData?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-        ?.card?.card?.itemCards
-    );
-  };
-  console.log(menuData, "menuData");
-  console.log(menuItem, "menuItem");
+  const resInfo = useRestaurantMenu(resId);
+  
+  
+  console.log(resInfo, "resInfo");
+  // console.log(menuItem, "menuItem");
   return (
     <>
-      {menuItem ? (
+      {resInfo ? (
         <div className="menuListWrapper">
-          <h3>{menuData.name}</h3>
+          <h3>{resInfo.name}</h3>
           <h4>List of Iters</h4>
-          <div>{menuData.avgRating}</div>
+          <div>{resInfo.avgRating}</div>
           <hr></hr>
-          <div>{menuData.costForTwoMessage}</div>
+          <div>{resInfo.costForTwoMessage}</div>
           <div className="flatDealWrapper">
-            <div className="menuItemGrid">
+            {/* <div className="menuItemGrid">
               {menuItem.map((item) => (
                 <div className="menuList" key={item.card.info.id}>
                   <h5>{item.card.info.name}</h5>
@@ -52,7 +37,7 @@ const RestaurantMenu = () => {
                   <p className="dishDiscription">{item.card.info.description}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       ) : (
