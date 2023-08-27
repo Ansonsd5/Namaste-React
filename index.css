@@ -171,3 +171,16 @@ li {
   margin: 0.5rem;
   background:linear-gradient(302deg, #ff000063, #a8b2f4);
 }
+
+.online{
+  background: greenyellow;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+.offline{
+background: red;
+height: 10px;
+width: 10px;
+border-radius: 50%;
+}

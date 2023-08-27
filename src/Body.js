@@ -50,7 +50,7 @@ export const Body = () => {
             value={searchText}
           />
           <button onClick={handleSearchText}>search</button>
-<div>{isOnline ? <div>online</div> :<div>offline</div>}</div>
+          {<div className={isOnline?"online":"offline"}></div>}
         </div>
       </div>
       <div className="restaurantWrapper">
