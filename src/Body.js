@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link, Params, useParams } from "react-router-dom";
+import useOnlineStatus from "./utils/useOnlineStatus";
 
 export const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const isOnline = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -48,6 +50,7 @@ export const Body = () => {
             value={searchText}
           />
           <button onClick={handleSearchText}>search</button>
+<div>{isOnline ? <div>online</div> :<div>offline</div>}</div>
         </div>
       </div>
       <div className="restaurantWrapper">
