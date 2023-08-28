@@ -20,6 +20,7 @@ return   <div className="headerWrapper">
       <div className="linkContainer">
         <ul className="unOrderedList">
           <li><Link to={"/"}>Home</Link></li>
+          <li><Link to={"/grocery"}>Grocery Mart</Link></li>
           <li><Link to={"/about"}>About Us</Link></li>
           <li><Link to={"/cart"}>Cart</Link></li>
           <li><Link to={"contact"}>Conatct Us</Link></li>
