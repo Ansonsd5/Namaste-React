@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {RestaurantCardWithLable} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link, Params, useParams } from "react-router-dom";
 import useOnlineStatus from "./utils/useOnlineStatus";
@@ -9,7 +9,7 @@ export const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const isOnline = useOnlineStatus();
-
+ const RestaurantCardPromoted =RestaurantCardWithLable(RestaurantCard);
   useEffect(() => {
     fetchData();
   }, []);
@@ -37,25 +37,26 @@ export const Body = () => {
   };
 
  console.log(Params,"params");
+
   return  filteredRestaurant.length === 0  ? <Shimmer />: (
-    <div className="bodyWrapper">
-      <div className="searchBoxWrapper">
-        <div className="search">
+    <div className="pr-5 pl-5 bg-primaryBg">
+      <div className="flex">
+        <div className="p-4 pl-0 flex gap-4 items-center ">
           <input
-            className="searchBox"
+            className="p-1 rounded-md mr-6"
             type="text"
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
             value={searchText}
           />
-          <button onClick={handleSearchText}>search</button>
-          {<div className={isOnline?"online":"offline"}></div>}
+          <button className="bg-primary text-btnTextColor pr-6 pl-6 pt-1 pb-1 rounded-md" onClick={handleSearchText}>search</button>
+          {<div className={isOnline?"bg-green-500 h-4 w-4 rounded-full":"bg-red-600 h-4 w-4 rounded-full"}></div>}
         </div>
       </div>
-      <div className="restaurantWrapper">
+      <div className="grid grid-cols-4 gap-10">
         { filteredRestaurant.map((restaurant) => (
-         <Link className="linkWrapper"  key={restaurant.info.id} to={"restaurant/"+`${restaurant.info.id}`}><RestaurantCard resData={restaurant} /> </Link> 
+         <Link className="linkWrapper"  key={restaurant.info.id} to={"restaurant/"+`${restaurant.info.id}`}>{restaurant.info.avgRatingString >4.2 ? <RestaurantCardPromoted resData={restaurant}/> :<RestaurantCard resData={restaurant} /> }</Link> 
         )) }
       </div>
     </div>
