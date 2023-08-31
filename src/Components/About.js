@@ -16,9 +16,9 @@ componentDidMount(){
   render(){
     console.log("Parent Render");
     return (
-      <section className="about-us">
+      <section className="flex-col p-10 bg-green-200">
         <div className="about-content">
-          <h1>About Us</h1>
+          <h1 className='text-center from-neutral-600 text-4xl'>About Us</h1>
           {/* <UserFunction name={"Anson Saver Dsouza"} role={"Frontend Developer @Niveus Solution"} workLocation= {"Mangaluru Karnataka"}/> */}
          
           <UserClass />

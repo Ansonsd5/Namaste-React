@@ -32,13 +32,13 @@ class UserClass extends React.Component {
    
     return (
       
-      <div className="classComponent" >
-        <h1>This is a Class Based React Component</h1>
-        <h1 style={{color:"red"}}>{name}</h1>
+      <div className="flex-row btnTextColor" >
+        <h1 className="text-xl" >This is a Class Based React Component</h1>
+        <h1 className=" text-xl">{name}</h1>
         <h5>{login}</h5>
         <h5>{location}</h5>
         <h5>Since from {created_at}</h5>
-        <img src={avatar_url} alt="avatar" style={{height:44,width:44,borderRadius:"50%"}} />
+        <img className="m-2" src={avatar_url} alt="avatar" style={{height:44,width:44,borderRadius:"50%"}} />
         
       
       </div>
