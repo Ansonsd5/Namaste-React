@@ -9,12 +9,12 @@ const useRestaurantMenu = (resId) => {
 
   const fetchMenuData = async () => {
     const responseData = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.000761&lng=74.8185446&restaurantId=" +
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=" +
         `${resId}`
     );
     const jsonResponse = await responseData.json();
-  setResInfo(jsonResponse?.data?.cards[0]?.card?.card?.info)
-  
+  setResInfo(jsonResponse?.data)
+  // console.log(jsonResponse?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR,"dffffffffffff");
   };
   return resInfo;
 };
