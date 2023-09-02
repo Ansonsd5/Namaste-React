@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const RestaurantMenu = () => {
   const [showCatagoryItems, setShowCatagoryItems] = useState(false);
+  const [showIndex , setShowIndex] = useState(null);
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
@@ -19,9 +20,12 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  const handleAccordian = () => {
+  const handleAccordian = (i) => {
+    console.log("i",i);
     setShowCatagoryItems(!showCatagoryItems);
+    setShowIndex(i)
   };
+  
 
   return (
     <div>
@@ -30,16 +34,26 @@ const RestaurantMenu = () => {
         {requiredDataForMenu?.map((catagory, index) => (
           <div>
             <div
-              className="flex justify-around bg-primaryBg py-4 my-3 cursor-pointer"
+              className="flex justify-between bg-primaryBg py-4 mt-4 cursor-pointer"
               key={catagory?.card?.card.title}
-              onClick={handleAccordian}
+              onClick={()=>{handleAccordian(index)}}
             >
-              <div className="w-16">{catagory?.card?.card.title}</div>
-              <div>⮟</div>
+              <div className="w-8/12 pl-8 text-lg font-bold">
+                {catagory?.card?.card?.title}(
+                {catagory?.card?.card?.itemCards.length})
+              </div>
+              <div className={showCatagoryItems ? "p-4 rotate-180" : "p-4"}>
+                ⮟
+              </div>
             </div>
             <div>
-              {setShowCatagoryItems && (
-                <RestaurantCatagories data={catagory?.card?.card?.itemCards} />
+              {showCatagoryItems && (
+                <RestaurantCatagories
+                  key={catagory?.card?.card?.id}
+                  data={catagory?.card?.card?.itemCards}
+                  index={showIndex}
+                />
+               
               )}
             </div>
             <div></div>
