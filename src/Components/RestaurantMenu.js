@@ -27,9 +27,9 @@ const RestaurantMenu = () => {
     );
 
   return (
-    <div>
-      <div>{name}</div>
-      <div>
+    <div className="w-6/12 mx-auto drop-shadow-2xl">
+      <div className="align-middle flex justify-center font-bold text-2xl">{name}</div>
+      <div className="font-semibold flex justify-center">
         {cuisines.join(",")} {costForTwoMessage}{" "}
       </div>
       {requiredDataForAccordian.map((catagory, index) => (

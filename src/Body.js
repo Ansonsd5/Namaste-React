@@ -39,7 +39,7 @@ export const Body = () => {
  console.log(Params,"params");
 
   return  filteredRestaurant.length === 0  ? <Shimmer />: (
-    <div className="pr-5 pl-5 bg-primaryBg">
+    <div className="p-5 bg-primaryBg">
       <div className="flex">
         <div className="p-4 pl-0 flex gap-4 items-center ">
           <input
