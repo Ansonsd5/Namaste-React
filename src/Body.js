@@ -23,7 +23,7 @@ export const Body = () => {
       );
       const jsonData = await response.json();
      
-          const requiredData = jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          const requiredData = jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
       setListOfRestaurant(requiredData);
       setFilteredRestaurant(requiredData);
     }

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import heroiconImage from '../assets/images/heroicon.png';
 import { Link } from "react-router-dom";
+import UserContext from "./utils/userContext";
 
 
 export const Header = () => {
   const [isLogin,setIsLogin] = useState(false);
+
+  const { loggedInUser } = useContext(UserContext);
+
+  console.log(loggedInUser,"loggedIn User");
   // const handleLogin = () =>{
   //  if (isLogin) {
   //     setIsLogin(false)
@@ -26,6 +31,7 @@ return   <div className="flex align-middle justify-between">
           <li className="bg-primary pt-1 pr-4 pl-4 pb-1 text-btnTextColor rounded-md hover:bg-gray-900"><Link to={"contact"}>Conatct Us</Link></li>
           {/* <li><button onClick={handleLogin}>{isLogin? "Logout" :"Login" }</button></li> */}
           <li className="bg-primary pt-1 pr-4 pl-4 pb-1 text-btnTextColor rounded-md hover:bg-gray-900"><button onClick={() =>{isLogin ? setIsLogin(false): setIsLogin(true)}}>{isLogin? "Logout" :"Login" }</button></li>
+          <li>{loggedInUser}</li>
         </ul>
       </div>
       
