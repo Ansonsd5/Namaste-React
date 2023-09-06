@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useState } from "react";
-import Shimmer from "../Shimmer";
+import Shimmer from "./Shimmer";
 import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
@@ -28,20 +28,22 @@ const RestaurantMenu = () => {
 
   return (
     <div className="w-6/12 mx-auto drop-shadow-2xl">
-      <div className="align-middle flex justify-center font-bold text-2xl">{name}</div>
+      <div className="align-middle flex justify-center font-bold text-2xl">
+        {name}
+      </div>
       <div className="font-semibold flex justify-center">
         {cuisines.join(",")} {costForTwoMessage}{" "}
       </div>
       {requiredDataForAccordian.map((catagory, index) => (
         <div>
-          <RestaurantCategory data={catagory?.card?.card} showitems={index === showIndex ? true : false} setShowIndex={()=>setShowIndex(index)}/>
+          <RestaurantCategory
+            data={catagory?.card?.card}
+            showitems={index === showIndex ? true : false}
+            setShowIndex={() => setShowIndex(index)}
+          />
         </div>
       ))}
     </div>
   );
-
-  
-
- 
 };
 export default RestaurantMenu;
