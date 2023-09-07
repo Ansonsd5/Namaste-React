@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import RestaurantCard, {RestaurantCardWithLable} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link, Params, useParams } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 
 export const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const isOnline = useOnlineStatus();
+  const {loggedInUser,setUserName} = useContext(UserContext);
+
+  const [updatedUserName , setUpdatedUserName] = useState(loggedInUser);
+  
  const RestaurantCardPromoted =RestaurantCardWithLable(RestaurantCard);
   useEffect(() => {
     fetchData();
@@ -36,7 +41,11 @@ export const Body = () => {
     setFilteredRestaurant(filteredRestaurant);
   };
 
-  return  filteredRestaurant.length === 0  ? <Shimmer />: (
+  const handleUpdate = (e) => {
+    setUserName(e.target.value);
+  };
+
+  return  filteredRestaurant?.length === 0  ? <Shimmer />: (
     <div className="p-5 bg-primaryBg">
       <div className="flex">
         <div className="p-4 pl-0 flex gap-4 items-center ">
@@ -48,6 +57,12 @@ export const Body = () => {
             }}
             value={searchText}
           />
+          <div className="p-5" >Update User Name 
+            <input className="mx-2"
+            onChange={handleUpdate}
+            value={loggedInUser}
+            ></input>
+          </div>
           <button className="bg-primary text-btnTextColor pr-6 pl-6 pt-1 pb-1 rounded-md" onClick={handleSearchText}>search</button>
           {<div className={isOnline?"bg-green-500 h-4 w-4 rounded-full":"bg-red-600 h-4 w-4 rounded-full"}></div>}
         </div>

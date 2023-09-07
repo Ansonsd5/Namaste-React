@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 
+
+
+
+
 const RestaurantCard = (props) => {
+  // const { loggedInUser } = useContext(UserContext);
   const { resData } = props;
 
   const {
@@ -30,8 +35,10 @@ const RestaurantCard = (props) => {
             <div>{costForTwo} </div>
           </div>
         </div>
+       
       </div>
     </div>
+
   );
 };
 
