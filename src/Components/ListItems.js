@@ -1,8 +1,17 @@
 import React from "react";
+import { addItems } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 // import { CDN_URL } from "../utils/constants";
 
 const ListItems = ({ items }) => {
+  const dispatch = useDispatch();
   console.log(items);
+
+  const addBtnHandler = (item) => {
+    //dispatch a action 
+    dispatch(addItems(item))
+    console.log(item,"item")
+  }
   return (
     <div className="flex-col justify-between ">
       {items?.map((item) => (
@@ -31,8 +40,8 @@ const ListItems = ({ items }) => {
               }
               alt="listImage"
             />
-            <div className=" absolute bg-primary rounded px-4 py-1 text-xs shadow-lg text-green-600 bottom-0">
-              Add+
+            <div className="absolute bg-primary rounded px-4 py-1 text-xs shadow-lg text-green-600 bottom-0">
+             <button onClick={() => addBtnHandler(item)}>Add+</button> 
             </div>
           </div>
         </div>

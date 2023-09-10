@@ -19,7 +19,9 @@ export const Header = () => {
   //     setIsLogin(true)
   //   }
   // }
-const cartItems = useSelector((store)=> store.cart.items )
+const cartItems = useSelector((store)=> store.cart.items );
+
+console.log(cartItems,"useDispatch");
   
 return   <div className="flex align-middle justify-between">
     <div className="h-40 w-40">
